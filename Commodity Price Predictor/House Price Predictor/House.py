@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 app = Flask(__name__)
-data = pd.read_csv("Cleane_House_Details.csv")
+data = pd.read_csv("Cleaned_House_Details.csv")
 pipe = pickle.load(open("House_Price_Prediction.pkl","rb"))
 
 @app.route("/")
