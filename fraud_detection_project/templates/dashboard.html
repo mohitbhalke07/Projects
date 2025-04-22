@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fraud Detection Dashboard</title>
+    
+    <!-- Styles & Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+            color: #333;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100vh;
+            background-color: #111827;
+            color: white;
+            padding: 2rem 1rem;
+            z-index: 1000;
+        }
+        .sidebar h4 {
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        .content {
+            margin-left: 260px;
+            padding: 2rem;
+        }
+        .card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            background-color: #ffffff;
+        }
+        .card-header {
+            background-color: #ffffff;
+            font-weight: 600;
+            font-size: 1rem;
+            border-bottom: none;
+        }
+        .total-transactions-box {
+            background-color: #3b82f6;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .btn-apply {
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 8px;
+            padding: 8px 20px;
+            font-weight: bold;
+            border: none;
+            transition: background 0.3s ease;
+        }
+        .btn-apply:hover {
+            background-color: #2563eb;
+        }
+        .table th, .table td {
+            white-space: nowrap;
+            vertical-align: middle;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h4>Fraud Dashboard</h4>
+    <a href="{{ url_for('logout') }}" class="btn btn-outline-light">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="content">
+    <!-- Date Filter Form -->
+    <form method="POST" action="/dashboard" class="row g-2 mb-4">
+        <div class="col-md-3">
+            <label for="start_date" class="form-label text-white">From:</label>
+            <input type="date" class="form-control" id="start_date" name="start_date" value="{{ start_date }}">
+        </div>
+        <div class="col-md-3">
+            <label for="end_date" class="form-label text-white">To:</label>
+            <input type="date" class="form-control" id="end_date" name="end_date" value="{{ end_date }}">
+        </div>
+        <div class="col-md-3 align-self-end">
+            <button type="submit" class="btn btn-apply">Apply</button>
+        </div>
+    </form>
+    <div class="col-md-3 align-self-end">
+        <form method="POST" action="/sync">
+            <button type="submit" class="btn btn-apply">Sync Data</button>
+        </form>
+    </div>
+    
+
+    <!-- Total Transactions -->
+    <div class="total-transactions-box">
+        Total Transactions<br>{{ data|length }}
+    </div>
+
+    <!-- Dashboard Charts -->
+    <div class="row g-4">
+        <!-- Payment Method Chart -->
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="card-header">Fraud by Payment Method (Chart)</h5>
+                <div class="card-body">
+                    <canvas id="paymentChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Devices Pie Chart (Fraudulent vs Non-Fraudulent) -->
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="card-header">Device Usage Distribution (Fraud vs Non-Fraud)</h5>
+                <div class="card-body">
+                    <div id="pie-chart"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fraud Rate by Payment Method -->
+    <div class="col-md-12">
+        <div class="card">
+            <h5 class="card-header">Fraud Percentage by Payment Method</h5>
+            <div class="card-body">
+                <div id="fraud-percent-payment-chart"></div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Line Chart -->
+        <!-- <div class="col-12">
+            <div class="card">
+                <h5 class="card-header">Fraudulent Transactions Over Time</h5>
+                <div class="card-body">
+                    <div id="line-chart"></div>
+                </div>
+            </div>
+        </div>  -->
+
+        <!-- Fraud by Product Category -->
+    <div class="col-md-6">
+        <div class="card">
+            <h5 class="card-header">Fraud by Product Category</h5>
+            <div class="card-body">
+                <div id="product-category-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Fraud by Location -->
+    <div class="col-md-6">
+        <div class="card">
+            <h5 class="card-header">Top 10 Fraud Locations</h5>
+            <div class="card-body">
+                <div id="location-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Transactions Table -->
+    <div class="col-12">
+        <div class="card">
+            <h5 class="card-header">All Transactions</h5>
+            <div class="card-body table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr No.</th>
+                            {% for key in data[0].keys() if key != 'is_fraudulent_actual' %}
+                                <th>{{ key }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in data %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                {% for key, value in row.items() if key != 'is_fraudulent_actual' %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fraud by Transaction Hour -->
+    <div class="col-md-6">
+        <div class="card">
+            <h5 class="card-header">Fraud by Transaction Hour</h5>
+            <div class="card-body">
+                <div id="transaction-hour-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Age Group Fraud Distribution -->
+    <div class="col-md-6">
+        <div class="card">
+            <h5 class="card-header">Fraud by Age Group</h5>
+            <div class="card-body">
+                <div id="age-group-chart"></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Account Age Fraud Chart -->
+    <div class="col-md-6">
+        <div class="card">
+            <h5 class="card-header">Fraud by Account Age Group</h5>
+            <div class="card-body">
+                <div id="account-age-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quantity-wise Fraud Distribution -->
+    <!-- <div class="col-md-6">
+        <div class="card">
+            <h5 class="card-header">Fraud by Quantity</h5>
+            <div class="card-body">
+                <div id="quantity-chart"></div>
+            </div>
+        </div>
+    </div> -->
+
+        
+        
+        </div>
+    </div>
+</div>
+
+<!-- Plotly Line Chart -->
+<script>
+    Plotly.newPlot('line-chart', [{
+        x: {{ date_labels | tojson }},
+        y: {{ fraudulent_transactions | tojson }},
+        type: 'scatter',
+        mode: 'lines+markers',
+        marker: { color: '#ef4444' }
+    }], {
+        margin: { t: 30 },
+        xaxis: { title: 'Date' },
+        yaxis: { title: 'Fraud Count' }
+    });
+</script>
+
+<!-- Chart.js Payment Method Bar Chart -->
+<script>
+    new Chart(document.getElementById('paymentChart'), {
+        type: 'bar',
+        data: {
+            labels: {{ payment_method_labels | tojson }},
+            datasets: [
+                {
+                    label: 'Fraudulent',
+                    data: {{ fraudulent_counts | tojson }},
+                    backgroundColor: '#dc3545'
+                },
+                {
+                    label: 'Non-Fraudulent',
+                    data: {{ non_fraudulent_counts | tojson }},
+                    backgroundColor: '#28a745'
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            indexAxis: 'y',
+            plugins: {
+                legend: { position: 'top' },
+                title: { display: false }
+            },
+            scales: { x: { beginAtZero: true } }
+        }
+    });
+</script>
+
+<!-- Plotly Devices Pie Chart (Fraudulent vs Non-Fraudulent) -->
+<script>
+    Plotly.newPlot('pie-chart', [{
+        labels: {{ devices_labels | tojson }},
+        values: {{ fraudulent_device_counts | tojson }},
+        type: 'pie',
+        name: 'Fraudulent',
+        marker: {
+            colors: ['#ef4444', '#f59e0b']
+        },
+        hole: 0.4
+    }, {
+        labels: {{ devices_labels | tojson }},
+        values: {{ non_fraudulent_device_counts | tojson }},
+        type: 'pie',
+        name: 'Non-Fraudulent',
+        marker: {
+            colors: ['#10b981', '#3b82f6']
+        },
+        hole: 0.4
+    }], {
+        margin: { t: 30 },
+        height: 400,
+        title: 'Device Usage Distribution (Fraud vs Non-Fraud)',
+        annotations: [{
+            font: { size: 20, color: 'white' },
+            showarrow: false,
+            text: 'Fraud vs Non-Fraud',
+            x: 0.5,
+            y: 0.5
+        }]
+    });
+</script>
+
+<script>
+    // Product Category Fraud Chart
+    Plotly.newPlot('product-category-chart', [{
+        x: {{ category_labels | tojson }},
+        y: {{ category_fraud_counts | tojson }},
+        type: 'bar',
+        marker: { color: '#f43f5e' }
+    }], { title: 'Fraud by Product Category' });
+
+    // Age Group Fraud Chart
+    Plotly.newPlot('age-group-chart', [{
+        labels: {{ age_group_labels | tojson }},
+        values: {{ age_group_fraud_counts | tojson }},
+        type: 'pie',
+        hole: 0.4,
+        marker: { colors: ['#10b981', '#3b82f6', '#6366f1', '#8b5cf6', '#ec4899'] }
+    }], { title: 'Age Group Fraud Distribution' });
+
+    // Transaction Hour Chart
+    Plotly.newPlot('transaction-hour-chart', [{
+        x: {{ hour_labels | tojson }},
+        y: {{ hour_fraud_counts | tojson }},
+        type: 'bar',
+        marker: { color: '#f97316' }
+    }], { title: 'Fraud by Transaction Hour' });
+
+    // Location Fraud Chart
+    Plotly.newPlot('location-chart', [{
+        x: {{ top_locations | tojson }},
+        y: {{ top_location_fraud_counts | tojson }},
+        type: 'bar',
+        marker: { color: '#22d3ee' }
+    }], { title: 'Top 10 Fraudulent Locations' });
+
+    // Account Age Fraud Chart
+    Plotly.newPlot('account-age-chart', [{
+        x: {{ account_age_bins | tojson }},
+        y: {{ account_age_fraud_counts | tojson }},
+        type: 'bar',
+        marker: { color: '#8b5cf6' }
+    }], { title: 'Fraud by Account Age Group' });
+
+    // Quantity Fraud Chart
+    Plotly.newPlot('quantity-chart', [{
+        x: {{ quantity_labels | tojson }},
+        y: {{ quantity_fraud_counts | tojson }},
+        type: 'bar',
+        marker: { color: '#ec4899' }
+    }], { title: 'Fraud by Quantity' });
+
+    // Fraud Percent by Payment Method
+    Plotly.newPlot('fraud-percent-payment-chart', [{
+        x: {{ payment_method_labels | tojson }},
+        y: {{ fraud_percentages | tojson }},
+        type: 'bar',
+        marker: { color: '#e11d48' }
+    }], {
+        title: 'Fraud % by Payment Method',
+        yaxis: { title: '% Fraud', ticksuffix: '%' }
+    });
+</script>
+
+
+</body>
+</html>

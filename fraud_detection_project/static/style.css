@@ -1,0 +1,145 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: #fff;
+}
+
+.login-container h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-custom {
+    background-color: #3498db;
+    border: none;
+    font-weight: 600;
+}
+
+.btn-custom:hover {
+    background-color: #2980b9;
+}
+
+.alert {
+    font-size: 0.9rem;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+h2 {
+    color: #333;
+}
+
+.card {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    background-color: #ffffff;
+}
+
+.card-header {
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border-bottom: none;
+}
+
+.table th, .table td {
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    max-height: 400px;
+}
+
+#bar-chart, #pie-chart, #line-chart {
+    background: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+thead.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: #111827;
+    color: white;
+    padding: 2rem 1rem;
+    z-index: 1000;
+}
+
+.sidebar h4 {
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.content {
+    margin-left: 260px;
+    padding: 2rem;
+}
+
+.total-transactions-box {
+    background-color: #3b82f6;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.btn-apply {
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: bold;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.btn-apply:hover {
+    background-color: #2563eb;
+}
