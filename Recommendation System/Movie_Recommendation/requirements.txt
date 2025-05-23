@@ -1,0 +1,10 @@
+streamlit
+pandas
+requests
+langchain
+chromadb
+langchain_huggingface
+scikit-learn
+sentence-transformers
+joblib
+gunicorn
