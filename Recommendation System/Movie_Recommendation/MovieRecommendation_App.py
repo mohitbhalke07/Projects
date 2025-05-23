@@ -15,7 +15,17 @@ movie_data = pd.read_csv("movie_data_preprocessed.csv")
 embedding_fn = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 # Load vector store
-vector_store = Chroma(persist_directory="./chroma_movies", embedding_function=embedding_fn)
+# vector_store = Chroma(persist_directory="./chroma_movies", embedding_function=embedding_fn)
+if not os.path.exists("chroma_movies"):
+    from langchain.docstore.document import Document
+
+    movie_df = pd.read_csv("movie_data_preprocessed.csv")
+    docs = [Document(page_content=row["tags"], metadata={"title": row["title"]}) for _, row in movie_df.iterrows()]
+    
+    vector_store = Chroma.from_documents(docs, embedding=embedding_fn, persist_directory="chroma_movies")
+    vector_store.persist()
+else:
+    vector_store = Chroma(persist_directory="chroma_movies", embedding_function=embedding_fn)
 
 OMDB_API_KEY = "e1bd2d70"
 
