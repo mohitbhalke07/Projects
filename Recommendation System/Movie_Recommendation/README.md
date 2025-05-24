@@ -31,3 +31,9 @@ An intelligent movie recommendation app built using **Streamlit**, **HuggingFace
 | Deployment         | Render                                   |
 
 ---
+
+## 🚀 Live Demo
+
+🌐 [https://movie-recommendation-zkup.onrender.com](https://movie-recommendation-zkup.onrender.com)
+
+---
