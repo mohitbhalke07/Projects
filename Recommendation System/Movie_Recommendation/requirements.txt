@@ -8,3 +8,5 @@ scikit-learn
 sentence-transformers
 joblib
 gunicorn
+langchain-chroma
+pinecone-client
