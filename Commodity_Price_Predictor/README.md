@@ -68,25 +68,27 @@ Access the live app here: https://commodity-price-predictor-deployment.onrender.
 
 ---
 
-## 🖥️ Tech Stack
-
-- **Frontend/UI**: [Streamlit](https://streamlit.io)
-- **Backend/ML**: scikit-learn, XGBoost, pandas, NumPy
-- **Deployment**: [Render](https://render.com)
-
+🔍 Features
+✅ Unified interface to predict prices for cars, mobile phones, and houses
+✅ Dropdown selector dynamically routes users to the relevant prediction form
+✅ Smart form fields auto-filled with unique values from the dataset
+✅ Accurate predictions powered by tuned ML models (XGBoost, ElasticNet, GradientBoosting)
+✅ Clean and minimal Streamlit UI for easy interaction
+✅ Fast predictions with pre-trained models loaded via joblib/pickle
+✅ Deployed on Render and accessible via web browser
+✅ Modular structure for future integration of more commodity types
 ---
 
-## 📁 Project Structure
-├── app.py # Main Streamlit application
-├── models/ # Trained models (.pkl)
-│ ├── randcv_xgb_best_model_Car_Price_Prediction.pkl
-│ ├── xgb_grid_best_model_Mobile.pkl
-│ └── xgb_grid_best_model_House.pkl
-├── data/ # Cleaned datasets
-│ ├── car_cleaned.csv
-│ ├── mobile_cleaned.csv
-│ └── house_cleaned.csv
-├── requirements.txt # Python dependencies
-└── README.md # Project documentation
+## 🧠 Tech Stack
+
+| Component           | Tech Used                                              |
+|--------------------|---------------------------------------------------------|
+| Frontend UI        | Streamlit                                               |
+| Backend Logic      | Python                                                  |
+| ML Models          | XGBoost, GradientBoosting, ElasticNet, RandomForest     |
+| Preprocessing      | scikit-learn (OneHotEncoder, MinMaxScaler, ColumnTransformer) |
+| Model Persistence  | Joblib, Pickle                                          |
+| Routing Logic      | Streamlit page logic with dynamic UI rendering          |
+| Deployment         | Render                                                  |
 
 ---
