@@ -68,16 +68,6 @@ Access the live app here: https://commodity-price-predictor-deployment.onrender.
 
 ---
 
-## 🔍 Features
-
-✅ Unified dashboard with dropdown selection for **Car**, **Mobile**, and **House** predictors  
-✅ Dynamically generated input fields from dataset column values (not hardcoded)  
-✅ Price prediction using top-performing models (XGBoost, ElasticNet, etc.)  
-✅ Clean, modular UI with Streamlit  
-✅ Models trained and optimized using GridSearchCV and RandomizedSearchCV  
-✅ Ready for production deployment on Render
----
-
 ## 🧠 Tech Stack
 
 | Component           | Tech Used                                              |
