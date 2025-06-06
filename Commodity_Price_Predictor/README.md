@@ -68,15 +68,14 @@ Access the live app here: https://commodity-price-predictor-deployment.onrender.
 
 ---
 
-🔍 Features
-✅ Unified interface to predict prices for cars, mobile phones, and houses
-✅ Dropdown selector dynamically routes users to the relevant prediction form
-✅ Smart form fields auto-filled with unique values from the dataset
-✅ Accurate predictions powered by tuned ML models (XGBoost, ElasticNet, GradientBoosting)
-✅ Clean and minimal Streamlit UI for easy interaction
-✅ Fast predictions with pre-trained models loaded via joblib/pickle
-✅ Deployed on Render and accessible via web browser
-✅ Modular structure for future integration of more commodity types
+## 🔍 Features
+
+✅ Unified dashboard with dropdown selection for **Car**, **Mobile**, and **House** predictors  
+✅ Dynamically generated input fields from dataset column values (not hardcoded)  
+✅ Price prediction using top-performing models (XGBoost, ElasticNet, etc.)  
+✅ Clean, modular UI with Streamlit  
+✅ Models trained and optimized using GridSearchCV and RandomizedSearchCV  
+✅ Ready for production deployment on Render
 ---
 
 ## 🧠 Tech Stack
