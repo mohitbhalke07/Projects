@@ -1,0 +1,171 @@
+2025-09-25 10:41:03,740 - INFO - Request received: text_length=80
+2025-09-25 10:41:04,148 - INFO - HF API Response: status=403, body={
+  "error": "This authentication method does not have sufficient permissions to call Inference Providers on behalf of user mohitbhalke07"
+}
+2025-09-25 10:41:04,148 - ERROR - HF API error: 403 - {"error":"This authentication method does not have sufficient permissions to call Inference Providers on behalf of user mohitbhalke07"}
+2025-09-25 10:45:08,755 - INFO - Request received: text_length=80
+2025-09-25 10:45:09,142 - INFO - HF API Response: status=403, body={
+  "error": "This authentication method does not have sufficient permissions to call Inference Providers on behalf of user mohitbhalke07"
+}
+2025-09-25 10:45:09,143 - ERROR - HF API error: 403 - {"error":"This authentication method does not have sufficient permissions to call Inference Providers on behalf of user mohitbhalke07"}
+2025-09-25 10:45:26,775 - INFO - Request received: text_length=80
+2025-09-25 10:45:27,222 - INFO - HF API Response: status=403, body={
+  "error": "This authentication method does not have sufficient permissions to call Inference Providers on behalf of user mohitbhalke07"
+}
+2025-09-25 10:45:27,222 - ERROR - HF API error: 403 - {"error":"This authentication method does not have sufficient permissions to call Inference Providers on behalf of user mohitbhalke07"}
+2025-09-25 10:48:29,008 - INFO - Request received: text_length=80
+2025-09-25 10:48:29,432 - INFO - HF API Response: status=404, body=Not Found
+2025-09-25 10:48:29,433 - ERROR - HF API error: 404 - Not Found
+2025-09-25 10:51:00,144 - INFO - Request received: text_length=80
+2025-09-25 10:51:00,456 - INFO - HF API Response: status=404, body=Not Found
+2025-09-25 10:51:00,457 - ERROR - HF API error: 404 - Not Found
+2025-09-25 10:52:06,444 - INFO - Request received: text_length=80
+2025-09-25 10:52:10,335 - INFO - HF API Response: status=200, body=[
+  [
+    {
+      "label": "LABEL_0",
+      "score": 0.9792207479476929
+    },
+    {
+      "label": "LABEL_1",
+      "score": 0.01763385720551014
+    },
+    {
+      "label": "LABEL_2",
+      "score": 0.0031455138232558966
+    }
+  ]
+]
+2025-09-25 10:52:10,344 - INFO - Response: {"text":"This is absolutely the worst experience ever. I'm furious and need a refund NOW!","scores":{"label_0":0.9792207479476929,"label_1":0.01763385720551014,"label_2":0.0031455138232558966},"escalate":false,"threshold":0.8,"model_name":"cardiffnlp/twitter-roberta-base-sentiment","timestamp":"2025-09-25T05:22:10.335960Z"}
+2025-09-25 10:53:53,074 - INFO - Request received: text_length=80
+2025-09-25 10:53:57,830 - INFO - HF API Response: status=200, body=[
+  [
+    {
+      "label": "LABEL_0",
+      "score": 0.9792207479476929
+    },
+    {
+      "label": "LABEL_1",
+      "score": 0.01763385720551014
+    },
+    {
+      "label": "LABEL_2",
+      "score": 0.0031455138232558966
+    }
+  ]
+]
+2025-09-25 10:53:57,831 - INFO - Response: {"text":"This is absolutely the worst experience ever. I'm furious and need a refund NOW!","scores":{"label_0":0.9792207479476929,"label_1":0.01763385720551014,"label_2":0.0031455138232558966},"escalate":false,"threshold":0.8,"model_name":"cardiffnlp/twitter-roberta-base-sentiment","timestamp":"2025-09-25T05:23:57.831557Z"}
+2025-09-25 10:56:05,584 - INFO - Request received: text_length=80
+2025-09-25 10:56:11,259 - INFO - HF API Response: status=200, body=[
+  [
+    {
+      "label": "LABEL_0",
+      "score": 0.9792207479476929
+    },
+    {
+      "label": "LABEL_1",
+      "score": 0.01763385720551014
+    },
+    {
+      "label": "LABEL_2",
+      "score": 0.0031455138232558966
+    }
+  ]
+]
+2025-09-25 10:56:11,259 - INFO - Response: {"text":"This is absolutely the worst experience ever. I'm furious and need a refund NOW!","scores":{"negative":0.9792207479476929,"neutral":0.01763385720551014,"positive":0.0031455138232558966},"escalate":true,"threshold":0.8,"model_name":"cardiffnlp/twitter-roberta-base-sentiment","timestamp":"2025-09-25T05:26:11.259824Z"}
+2025-09-25 10:56:36,405 - INFO - Request received: text_length=80
+2025-09-25 10:56:37,175 - INFO - HF API Response: status=200, body=[
+  [
+    {
+      "label": "LABEL_2",
+      "score": 0.9891391396522522
+    },
+    {
+      "label": "LABEL_1",
+      "score": 0.007945980876684189
+    },
+    {
+      "label": "LABEL_0",
+      "score": 0.0029148380272090435
+    }
+  ]
+]
+2025-09-25 10:56:37,176 - INFO - Response: {"text":"This is absolutely the good experience ever. I'm furious and will recommend NOW!","scores":{"positive":0.9891391396522522,"neutral":0.007945980876684189,"negative":0.0029148380272090435},"escalate":false,"threshold":0.8,"model_name":"cardiffnlp/twitter-roberta-base-sentiment","timestamp":"2025-09-25T05:26:37.176556Z"}
+2025-09-25 10:56:50,580 - INFO - Request received: text_length=61
+2025-09-25 10:56:51,092 - INFO - HF API Response: status=200, body=[
+  [
+    {
+      "label": "LABEL_2",
+      "score": 0.9890963435173035
+    },
+    {
+      "label": "LABEL_1",
+      "score": 0.007583990227431059
+    },
+    {
+      "label": "LABEL_0",
+      "score": 0.0033196676522493362
+    }
+  ]
+]
+2025-09-25 10:56:51,093 - INFO - Response: {"text":"This is absolutely the good experience ever. I'm furious NOW!","scores":{"positive":0.9890963435173035,"neutral":0.007583990227431059,"negative":0.0033196676522493362},"escalate":false,"threshold":0.8,"model_name":"cardiffnlp/twitter-roberta-base-sentiment","timestamp":"2025-09-25T05:26:51.093031Z"}
+2025-09-25 10:57:34,770 - INFO - Request received: text_length=64
+2025-09-25 10:57:35,431 - INFO - HF API Response: status=200, body=[
+  [
+    {
+      "label": "LABEL_2",
+      "score": 0.4266122579574585
+    },
+    {
+      "label": "LABEL_0",
+      "score": 0.32978981733322144
+    },
+    {
+      "label": "LABEL_1",
+      "score": 0.24359789490699768
+    }
+  ]
+]
+2025-09-25 10:57:35,432 - INFO - Response: {"text":"This is absolutely the bobling experience ever. I'm furious NOW!","scores":{"positive":0.4266122579574585,"negative":0.32978981733322144,"neutral":0.24359789490699768},"escalate":false,"threshold":0.8,"model_name":"cardiffnlp/twitter-roberta-base-sentiment","timestamp":"2025-09-25T05:27:35.432149Z"}
+2025-09-25 10:59:07,596 - INFO - Request received: text_length=64
+2025-09-25 10:59:07,972 - INFO - HF API Response: status=401, body={
+  "error": "Invalid credentials in Authorization header"
+}
+2025-09-25 10:59:07,972 - ERROR - HF API error: 401 - {"error":"Invalid credentials in Authorization header"}
+2025-09-25 10:59:28,198 - INFO - Request received: text_length=64
+2025-09-25 10:59:28,606 - INFO - HF API Response: status=200, body=[
+  [
+    {
+      "label": "LABEL_2",
+      "score": 0.4266122579574585
+    },
+    {
+      "label": "LABEL_0",
+      "score": 0.32978981733322144
+    },
+    {
+      "label": "LABEL_1",
+      "score": 0.24359789490699768
+    }
+  ]
+]
+2025-09-25 10:59:28,606 - INFO - Response: {"text":"This is absolutely the bobling experience ever. I'm furious NOW!","scores":{"positive":0.4266122579574585,"negative":0.32978981733322144,"neutral":0.24359789490699768},"escalate":false,"threshold":0.8,"model_name":"cardiffnlp/twitter-roberta-base-sentiment","timestamp":"2025-09-25T05:29:28.606654Z"}
+2025-09-25 11:01:18,546 - WARNING - Invalid API key
+2025-09-25 11:01:31,965 - INFO - Request received: text_length=64
+2025-09-25 11:01:35,978 - INFO - HF API Response: status=200, body=[
+  [
+    {
+      "label": "LABEL_2",
+      "score": 0.4266122579574585
+    },
+    {
+      "label": "LABEL_0",
+      "score": 0.32978981733322144
+    },
+    {
+      "label": "LABEL_1",
+      "score": 0.24359789490699768
+    }
+  ]
+]
+2025-09-25 11:01:35,979 - INFO - Response: {"text":"This is absolutely the bobling experience ever. I'm furious NOW!","scores":{"positive":0.4266122579574585,"negative":0.32978981733322144,"neutral":0.24359789490699768},"escalate":false,"threshold":0.8,"model_name":"cardiffnlp/twitter-roberta-base-sentiment","timestamp":"2025-09-25T05:31:35.978847Z"}
