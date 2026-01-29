@@ -1,0 +1,108 @@
+2026-01-22 11:50:05,333 - INFO - Request received: text_length=56
+2026-01-22 11:50:06,183 - INFO - HF API Response: status=410, body={
+  "error": "https://api-inference.huggingface.co is no longer supported. Please use https://router.huggingface.co instead."
+}
+2026-01-22 11:50:06,184 - ERROR - HF API error: 410 - {"error":"https://api-inference.huggingface.co is no longer supported. Please use https://router.huggingface.co instead."}
+2026-01-22 11:51:45,240 - INFO - Request received: text_length=56
+2026-01-22 11:51:45,706 - INFO - HF API Response: status=404, body=Not Found
+2026-01-22 11:51:45,706 - ERROR - HF API error: 404 - Not Found
+2026-01-22 11:51:56,425 - INFO - Request received: text_length=56
+2026-01-22 11:51:57,134 - INFO - HF API Response: status=404, body=Not Found
+2026-01-22 11:51:57,134 - ERROR - HF API error: 404 - Not Found
+2026-01-22 11:52:58,266 - INFO - Request received: text_length=56
+2026-01-22 11:52:58,750 - INFO - HF API Response: status=404, body=Not Found
+2026-01-22 11:52:58,751 - ERROR - HF API error: 404 - Not Found
+2026-01-29 00:15:38,634 - INFO - Loading fine-tuned sentiment model from ./model/finetuned_model
+2026-01-29 00:15:45,772 - INFO - Model loaded successfully
+2026-01-29 00:20:25,751 - INFO - Loading fine-tuned sentiment model from ./model/finetuned_model
+2026-01-29 00:20:29,803 - INFO - Model loaded successfully
+2026-01-29 00:20:46,936 - INFO - Loading fine-tuned sentiment model from ./model/finetuned_model
+2026-01-29 00:20:50,868 - INFO - Model loaded successfully
+2026-01-29 00:21:19,011 - INFO - Loading fine-tuned sentiment model from ./model/finetuned_model
+2026-01-29 00:21:22,422 - INFO - Model loaded successfully
+2026-01-29 00:24:12,295 - INFO - Request received: text_length=56
+2026-01-29 00:24:15,190 - INFO - Response: {"text":"This was terrible and I wont be visiting the site again.","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"finetuned_model","timestamp":"2026-01-28T18:54:15.190081Z"}
+2026-01-29 00:25:39,712 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 00:25:46,265 - INFO - Model loaded successfully
+2026-01-29 00:26:34,385 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 00:26:35,183 - INFO - Model loaded successfully
+2026-01-29 00:26:42,218 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 00:26:42,777 - INFO - Model loaded successfully
+2026-01-29 00:35:11,316 - INFO - Request received: text_length=100
+2026-01-29 00:35:14,385 - INFO - Response: {"text":"I tried depositing, got failure message but money deducted which shouldnt be happening please check!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:05:14.365216Z"}
+2026-01-29 00:35:47,462 - INFO - Request received: text_length=85
+2026-01-29 00:35:49,775 - INFO - Response: {"text":"I tried depositing, got success message and money deducted which should be happening!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:05:49.775349Z"}
+2026-01-29 00:36:04,124 - INFO - Request received: text_length=79
+2026-01-29 00:36:04,146 - INFO - Response: {"text":"I tried depositing, got success message and money deducted which should happen!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:06:04.145935Z"}
+2026-01-29 00:36:13,298 - INFO - Request received: text_length=87
+2026-01-29 00:36:13,315 - INFO - Response: {"text":"I tried depositing, got success message and money deducted which should happen, thanks!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:06:13.315356Z"}
+2026-01-29 00:36:27,170 - INFO - Request received: text_length=16
+2026-01-29 00:36:27,181 - INFO - Response: {"text":"all good thanks!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:06:27.181607Z"}
+2026-01-29 00:37:01,241 - INFO - Request received: text_length=24
+2026-01-29 00:37:01,355 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:07:01.355313Z"}
+2026-01-29 00:38:13,701 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 00:38:20,583 - INFO - Model loaded successfully
+2026-01-29 00:38:28,201 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 00:38:28,920 - INFO - Model loaded successfully
+2026-01-29 00:38:34,190 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 00:38:34,911 - INFO - Model loaded successfully
+2026-01-29 00:38:34,943 - INFO - Request received: text_length=24
+2026-01-29 00:38:36,268 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:08:36.268423Z"}
+2026-01-29 00:38:46,570 - INFO - Request received: text_length=24
+2026-01-29 00:38:46,584 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:08:46.584010Z"}
+2026-01-29 00:39:29,498 - INFO - Request received: text_length=24
+2026-01-29 00:39:29,560 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-28T19:09:29.557197Z"}
+2026-01-29 00:40:33,490 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 00:40:34,360 - INFO - Model loaded successfully
+2026-01-29 10:21:04,238 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:21:11,170 - INFO - Model loaded successfully
+2026-01-29 10:21:27,309 - INFO - Request received: text_length=24
+2026-01-29 10:21:29,697 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T04:51:29.689756Z"}
+2026-01-29 10:26:15,973 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:26:22,982 - INFO - Model loaded successfully
+2026-01-29 10:26:23,263 - INFO - Request received: text_length=24
+2026-01-29 10:28:25,523 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:28:32,277 - INFO - Model loaded successfully
+2026-01-29 10:28:41,535 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:28:42,586 - INFO - Model loaded successfully
+2026-01-29 10:28:42,634 - INFO - Request received: text_length=24
+2026-01-29 10:28:43,247 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763,"neutral":0.0,"positive":0.0},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T04:58:43.231829Z"}
+2026-01-29 10:39:08,148 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:39:15,141 - INFO - Model loaded successfully
+2026-01-29 10:39:26,683 - INFO - Request received: text_length=24
+2026-01-29 10:41:41,499 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:41:47,508 - INFO - Model loaded successfully
+2026-01-29 10:42:42,645 - INFO - Request received: text_length=24
+2026-01-29 10:42:43,282 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T05:12:43.280239Z"}
+2026-01-29 10:46:09,943 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:46:16,882 - INFO - Model loaded successfully
+2026-01-29 10:47:41,401 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:47:44,283 - INFO - Model loaded successfully
+2026-01-29 10:47:57,076 - INFO - Request received: text_length=24
+2026-01-29 10:47:59,388 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T05:17:59.388485Z"}
+2026-01-29 10:48:12,804 - INFO - Request received: text_length=24
+2026-01-29 10:48:12,838 - INFO - Response: {"text":"everything working fine!","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T05:18:12.838378Z"}
+2026-01-29 10:49:33,841 - INFO - Request received: text_length=37
+2026-01-29 10:49:33,905 - INFO - Response: {"text":"support is terrible and nothing works","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T05:19:33.905260Z"}
+2026-01-29 10:49:50,343 - INFO - Request received: text_length=38
+2026-01-29 10:49:50,391 - INFO - Response: {"text":"thanks, support fixed my issue quickly","scores":{"negative":0.9808186888694763,"neutral":0.010816027410328388,"positive":0.008365195244550705},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T05:19:50.370577Z"}
+2026-01-29 10:53:15,593 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:53:21,338 - INFO - Model loaded successfully
+2026-01-29 10:53:39,218 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:53:41,896 - INFO - Model loaded successfully
+2026-01-29 10:53:58,382 - INFO - Request received: text_length=38
+2026-01-29 10:54:00,238 - INFO - Response: {"text":"thanks, support fixed my issue quickly","scores":{"positive":0.8408098220825195,"neutral":0.13652008771896362,"negative":0.022670112550258636},"escalate":false,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T05:24:00.215062Z"}
+2026-01-29 10:54:33,264 - INFO - Request received: text_length=37
+2026-01-29 10:54:33,326 - INFO - Response: {"text":"support is terrible and nothing works","scores":{"negative":0.931957483291626,"neutral":0.05846601724624634,"positive":0.009576534852385521},"escalate":true,"threshold":0.6,"model_name":"sentiment_roberta_finetuned","timestamp":"2026-01-29T05:24:33.326438Z"}
+2026-01-29 10:56:04,744 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:56:08,132 - INFO - Model loaded successfully
+2026-01-29 10:56:28,022 - INFO - Loading fine-tuned sentiment model from ./model/sentiment_roberta_finetuned
+2026-01-29 10:56:30,828 - INFO - Model loaded successfully
+2026-01-29 10:59:40,089 - INFO - Loading fine-tuned sentiment model from cardiffnlp/twitter-roberta-base-sentiment-latest
+2026-01-29 10:59:44,625 - INFO - Model loaded successfully
+2026-01-29 10:59:59,289 - INFO - Loading fine-tuned sentiment model from cardiffnlp/twitter-roberta-base-sentiment-latest
+2026-01-29 11:00:01,665 - INFO - Model loaded successfully
+2026-01-29 11:00:36,188 - INFO - Request received: text_length=37
+2026-01-29 11:00:38,720 - INFO - Response: {"text":"support is terrible and nothing works","scores":{"negative":0.931957483291626,"neutral":0.05846601724624634,"positive":0.009576534852385521},"escalate":true,"threshold":0.6,"model_name":"twitter-roberta-base-sentiment-latest","timestamp":"2026-01-29T05:30:38.697652Z"}
+2026-01-29 11:00:52,709 - INFO - Request received: text_length=8
+2026-01-29 11:00:52,736 - INFO - Response: {"text":"All good","scores":{"positive":0.7318180799484253,"neutral":0.23336313664913177,"negative":0.03481880575418472},"escalate":false,"threshold":0.6,"model_name":"twitter-roberta-base-sentiment-latest","timestamp":"2026-01-29T05:30:52.718654Z"}

@@ -1,0 +1,41 @@
+id,text,sentiment,confidence
+1,"Deposit button is not working, tried multiple times but nothing happens",negative,0.8001
+2,Payment was marked as failed but the amount got deducted from my bank,negative,0.6491
+3,"Web trader is not loading at all, stuck on loading screen",negative,0.7904
+4,"Unable to update my personal details, it keeps showing an error",negative,0.8332
+5,Tried withdrawing funds but request is not getting submitted,negative,0.4974
+6,My account got locked suddenly without any reason,negative,0.8088
+7,Support is not responding for the last two days,negative,0.8759
+8,Payment gateway timed out and money is still not refunded,negative,0.8444
+9,App crashes every time I try to place a trade,negative,0.7459
+10,Getting error while uploading documents for KYC verification,negative,0.5403
+11,Funds transferred but balance is not updated in my account,neutral,0.7332
+12,Trade execution is very slow and prices are not updating,negative,0.8765
+13,Unable to login even after entering correct credentials,negative,0.5876
+14,Received confirmation email but transaction failed on dashboard,neutral,0.5031
+15,Facing frequent disconnections on the web trader platform,negative,0.7429
+16,"Deposit is pending since yesterday, no update yet",negative,0.6871
+17,System shows insufficient balance even though I have funds,negative,0.6109
+18,"Unable to reset my password, reset link is not working",negative,0.7483
+19,Placed an order but it got stuck in pending state,negative,0.7569
+20,Support agent closed my ticket without resolving the issue,negative,0.7616
+21,Getting blank screen when opening the trading dashboard,neutral,0.5657
+22,"Money deducted but deposit not reflected, this is very frustrating",negative,0.8843
+23,Unable to change my registered mobile number,negative,0.5637
+24,"Trade got executed at wrong price, please check",negative,0.5633
+25,Verification status is stuck at pending for a week,negative,0.8434
+26,Platform performance is very bad today,negative,0.9293
+27,Charts are not loading properly on the web trader,negative,0.5836
+28,Unable to download transaction history statement,negative,0.5935
+29,Facing repeated errors while adding bank account details,negative,0.6838
+30,Account verification failed without any clear reason,negative,0.7194
+31,"Everything is working fine now, thanks for the quick fix",positive,0.8422
+32,"Support resolved my issue quickly, appreciate the help",positive,0.8567
+33,"Deposit worked smoothly this time, no issues",positive,0.8912
+34,"Trading experience has improved a lot, good job",positive,0.977
+35,Service is okay but sometimes the platform feels slow,negative,0.5283
+36,The app is usable but could be more stable,positive,0.5295
+37,Not satisfied with the response time from support,negative,0.89
+38,Issue is partially resolved but still facing some problems,neutral,0.6011
+39,"My issue got resolved after update, thanks",positive,0.5773
+40,Overall experience is decent but needs improvement,positive,0.5331
