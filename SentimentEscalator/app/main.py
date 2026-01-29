@@ -63,11 +63,8 @@ logger.info("Loading fine-tuned sentiment model from %s", MODEL_PATH)
 #     model=MODEL_PATH,
 #     top_k=None
 # )
-sentiment_pipeline = pipeline(
-    task="text-classification",
-    model=MODEL_PATH,
-    top_k=None
-)
+
+sentiment_pipeline = None
 
 logger.info("Model loaded successfully")
 
@@ -99,38 +96,47 @@ def validate_api_key(x_api_key: str = Header(...)):
         raise HTTPException(status_code=401, detail="Invalid API Key")
     return True
 
+
+@app.on_event("startup")
+def load_model():
+    global sentiment_pipeline
+    logger.info("Loading sentiment model from %s", MODEL_PATH)
+    sentiment_pipeline = pipeline(
+        task="text-classification",
+        model=MODEL_PATH,
+        top_k=None
+    )
+    logger.info("Model loaded successfully")
+
 # -------------------
 # Local model inference
 # -------------------
 
 # def run_model(text: str):
-#     """
-#     Converts pipeline output into the same score format
-#     you were returning earlier.
-#     """
-#     outputs = sentiment_pipeline(text, top_k=None)
+#     outputs = sentiment_pipeline(text)
 
-#     # pipeline returns list of dicts
-#     scores = {
-#         item["label"].lower(): float(item["score"])
-#         for item in outputs
-#     }
+#     # v5 can return List[Dict] OR List[List[Dict]]
+#     results = outputs[0] if isinstance(outputs[0], list) else outputs
+
+#     scores = {}
+
+#     for item in results:
+#         label = item["label"].lower()
+#         scores[label] = float(item["score"])
 
 #     return scores
-
 def run_model(text: str):
-    outputs = sentiment_pipeline(text)
+    if sentiment_pipeline is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
 
-    # v5 can return List[Dict] OR List[List[Dict]]
+    outputs = sentiment_pipeline(text)
     results = outputs[0] if isinstance(outputs[0], list) else outputs
 
-    scores = {}
+    return {
+        item["label"].lower(): float(item["score"])
+        for item in results
+    }
 
-    for item in results:
-        label = item["label"].lower()
-        scores[label] = float(item["score"])
-
-    return scores
 
 
 
@@ -167,5 +173,5 @@ def health():
     return {
         "status": "ok",
         "model": os.path.basename(MODEL_PATH),
-        "using": "local-finetuned-model"
+        "using": "huggingface-model"
     }
